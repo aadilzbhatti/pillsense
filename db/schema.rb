@@ -11,12 +11,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150821043556) do
+ActiveRecord::Schema.define(version: 20150821043902) do
 
   create_table "care_providers", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string   "email"
   end
+
+  add_index "care_providers", ["email"], name: "index_care_providers_on_email", unique: true
 
 end

@@ -69,6 +69,6 @@ class CareProvidersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def care_provider_params
-      params.require(:care_provider).permit(:name)
+      params.require(:care_provider).permit(:name, :email)
     end
 end
