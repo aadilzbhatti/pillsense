@@ -1,14 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+<<<<<<< HEAD
   <component name="DataSourceManagerImpl" format="xml" hash="1395450350">
     <data-source source="LOCAL" name="Rails pillsense-app: development" uuid="467a6fe5-3201-49ca-a254-cdf7861c97ae">
+=======
+  <component name="DataSourceManagerImpl" format="xml" hash="3498275675">
+    <data-source source="LOCAL" name="Rails pillsense-app: development" uuid="1bea7702-60f7-459f-ae33-0d6f399032fd">
+>>>>>>> master
       <driver-ref>sqlite.xerial</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
       <jdbc-url>jdbc:sqlite:$PROJECT_DIR$/db/development.sqlite3</jdbc-url>
       <libraries />
     </data-source>
+<<<<<<< HEAD
     <data-source source="LOCAL" name="Rails pillsense-app: test" uuid="c9094e89-af74-4b0d-9afb-f7ea7c51d828">
+=======
+    <data-source source="LOCAL" name="Rails pillsense-app: test" uuid="8811baa3-0c6e-4efd-8e73-33529beba479">
+>>>>>>> master
       <driver-ref>sqlite.xerial</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
