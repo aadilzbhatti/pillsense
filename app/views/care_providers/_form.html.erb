@@ -1,0 +1,21 @@
+<%= form_for(@care_provider) do |f| %>
+  <% if @care_provider.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@care_provider.errors.count, "error") %> prohibited this care_provider from being saved:</h2>
+
+      <ul>
+      <% @care_provider.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
