@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component name="dataSourceStorage">
+  <data-source name="Rails pillsense-app: development" uuid="467a6fe5-3201-49ca-a254-cdf7861c97ae">
+    <database-info product="" version="" jdbc-version="" driver-name="" driver-version=""/>
+  </data-source>
+  <data-source name="Rails pillsense-app: test" uuid="c9094e89-af74-4b0d-9afb-f7ea7c51d828">
+    <database-info product="" version="" jdbc-version="" driver-name="" driver-version=""/>
+  </data-source>
+</component>
