@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <component name="dataSourceStorage">
-  <data-source name="Rails pillsense-app: development" uuid="55dfdcdd-96c8-4bae-bfc1-72141306a156">
+  <data-source name="Rails pillsense-app: development" uuid="1ecd7bae-c543-41e0-a7b3-c8d37f4e1569">
     <database-info product="SQLite" version="3.8.9" jdbc-version="2.1" driver-name="SQLiteJDBC" driver-version="native"/>
     <case-sensitivity plain-identifiers="mixed" quoted-identifiers="mixed"/>
     <schema name="" catalog=""/>
@@ -22,7 +22,7 @@
       <column name="seq" sqlType="" precision="2000000000" scale="10" nullable="true" jdbcType="12"/>
     </table>
   </data-source>
-  <data-source name="Rails pillsense-app: test" uuid="4cc84ec5-4931-462f-9671-a3a3a517a638">
+  <data-source name="Rails pillsense-app: test" uuid="e0527075-bc06-4d35-af24-247788a1d7c3">
     <database-info product="SQLite" version="3.8.9" jdbc-version="2.1" driver-name="SQLiteJDBC" driver-version="native"/>
     <case-sensitivity plain-identifiers="mixed" quoted-identifiers="mixed"/>
     <schema name="" catalog=""/>

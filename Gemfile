@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 ruby '2.2.0'
 
 gem 'rails'
+gem 'bootstrap-sass'
 gem 'sass-rails'
 gem 'uglifier'
 gem 'coffee-rails'
