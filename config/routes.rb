@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   get 'help' => 'static_pages#help'
   get 'about' => 'static_pages#about'
   get 'home' => 'static_pages#home'
+  get 'signup' => 'care_providers#new'
 
   resources :care_providers
   # The priority is based upon order of creation: first created -> highest priority.

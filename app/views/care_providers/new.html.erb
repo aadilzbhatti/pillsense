@@ -1,5 +1,34 @@
-<h1>New Care Provider</h1>
+<% provide(:title, 'Sign up') %>
+<h1>Sign up</h1>
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <%= form_for @care_provider do |f| %>
+        <% if @care_provider.errors.any? %>
+            <div id="error_explanation">
+              <div class="alert alert-danger">
+                The form contains <%= pluralize(@care_provider.errors.count, 'error') %>.
+              </div>
+              <ul>
+                <% @care_provider.errors.full_messages.each do |msg| %>
+                    <li><%= msg %></li>
+                <% end %>
+              </ul>
+            </div>
+        <% end %>
 
-<%= render 'form' %>
+        <%= f.label :name %>
+        <%= f.text_field :name, class: 'form-control' %>
 
-<%= link_to 'Back', care_providers_path %>
+        <%= f.label :email %>
+        <%= f.text_field :email, class: 'form-control' %>
+
+        <%= f.label :password %>
+        <%= f.password_field :password, class: 'form-control' %>
+
+        <%= f.label :password_confirmation, "Confirmation" %>
+        <%= f.password_field :password_confirmation, class: 'form-control' %>
+
+        <%= f.submit 'Create an account', class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>

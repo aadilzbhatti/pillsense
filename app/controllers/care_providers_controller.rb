@@ -10,6 +10,7 @@ class CareProvidersController < ApplicationController
   # GET /care_providers/1
   # GET /care_providers/1.json
   def show
+    @care_provider = CareProvider.find(params[:id])
   end
 
   # GET /care_providers/new
@@ -19,21 +20,17 @@ class CareProvidersController < ApplicationController
 
   # GET /care_providers/1/edit
   def edit
+    @care_provider = CareProvider.find(params[:id])
   end
 
   # POST /care_providers
   # POST /care_providers.json
   def create
     @care_provider = CareProvider.new(care_provider_params)
-
-    respond_to do |format|
-      if @care_provider.save
-        format.html { redirect_to @care_provider, notice: 'Care provider was successfully created.' }
-        format.json { render :show, status: :created, location: @care_provider }
-      else
-        format.html { render :new }
-        format.json { render json: @care_provider.errors, status: :unprocessable_entity }
-      end
+    if @care_provider.save
+      render 'show'
+    else
+      render 'new'
     end
   end
 
