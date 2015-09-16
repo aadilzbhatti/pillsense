@@ -28,6 +28,9 @@ class CareProvidersController < ApplicationController
   def create
     @care_provider = CareProvider.new(care_provider_params)
     if @care_provider.save
+      log_in @care_provider
+      remember @care_provider
+      flash[:success] = 'Welcome to the Pillsense Web Application!'
       render 'show'
     else
       render 'new'
@@ -37,14 +40,12 @@ class CareProvidersController < ApplicationController
   # PATCH/PUT /care_providers/1
   # PATCH/PUT /care_providers/1.json
   def update
-    respond_to do |format|
-      if @care_provider.update(care_provider_params)
-        format.html { redirect_to @care_provider, notice: 'Care provider was successfully updated.' }
-        format.json { render :show, status: :ok, location: @care_provider }
-      else
-        format.html { render :edit }
-        format.json { render json: @care_provider.errors, status: :unprocessable_entity }
-      end
+    @care_provider = CareProvider.find(params[:id])
+    if @care_provider.update_attributes(care_provider_params)
+      flash[:success] = 'Profile Updated'
+      redirect_to @care_provider
+    else
+      render 'edit'
     end
   end
 
