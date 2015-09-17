@@ -7,7 +7,7 @@ class ActiveSupport::TestCase
   fixtures :all
 
   def is_logged_in?
-    !session[:care_provider_id].nil?
+    !session[:provider_id].nil?
   end
 
   def log_in_as(user, options = {})
@@ -18,7 +18,7 @@ class ActiveSupport::TestCase
                                   password: password,
                                   remember_me: remember_me }
     else
-      session[:care_provider_id] = user.id
+      session[:provider_id] = user.id
     end
   end
 

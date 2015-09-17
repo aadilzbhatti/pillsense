@@ -3,11 +3,11 @@ class SessionController < ApplicationController
   end
 
   def create
-    care_provider = CareProvider.find_by(email: params[:session][:email].downcase)
-    if care_provider && care_provider.authenticate(params[:session][:password])
-      log_in care_provider
-      params[:session][:remember_me] == '1' ? remember(care_provider) : forget(care_provider)
-      redirect_back_or care_provider
+    provider = Provider.find_by(email: params[:session][:email].downcase)
+    if provider && provider.authenticate(params[:session][:password])
+      log_in provider
+      params[:session][:remember_me] == '1' ? remember(provider) : forget(provider)
+      redirect_back_or provider
     else
       flash.now[:danger] = 'Invalid email/password combination'
       render 'new'

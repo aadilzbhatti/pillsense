@@ -1,4 +1,4 @@
-class CareProvider < ActiveRecord::Base
+class Provider < ActiveRecord::Base
   attr_accessor :remember_token
   before_save { self.email.downcase! }
   validates :name, presence: true, length: { maximum: 50 }
@@ -8,18 +8,18 @@ class CareProvider < ActiveRecord::Base
   has_secure_password
   validates :password, presence: true, length: { minimum: 6 }, allow_nil: true
 
-  def CareProvider.digest(string)
+  def Provider.digest(string)
     cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST : BCrypt::Engine.cost
     BCrypt::Password.create(string, cost: cost)
   end
 
-  def CareProvider.new_token
+  def Provider.new_token
     SecureRandom.urlsafe_base64
   end
 
   def remember
-    self.remember_token = CareProvider.new_token
-    update_attribute(:remember_digest, CareProvider.digest(remember_token))
+    self.remember_token = Provider.new_token
+    update_attribute(:remember_digest, Provider.digest(remember_token))
   end
 
   def authenticated?(remember_token)

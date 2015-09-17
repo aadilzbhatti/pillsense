@@ -1,34 +1,34 @@
 module SessionHelper
-  def log_in(care_provider)
-    session[:care_provider_id] = care_provider.id
+  def log_in(provider)
+    session[:provider_id] = provider.id
   end
 
-  def remember(care_provider)
-    care_provider.remember
-    cookies.permanent.signed[:care_provider_id] = care_provider.id
-    cookies.permanent.signed[:remember_token] = care_provider.remember_token
+  def remember(provider)
+    provider.remember
+    cookies.permanent.signed[:provider_id] = provider.id
+    cookies.permanent.signed[:remember_token] = provider.remember_token
   end
 
-  def forget(care_provider)
-    care_provider.forget
-    cookies.delete(:care_provider_id)
+  def forget(provider)
+    provider.forget
+    cookies.delete(:provider_id)
     cookies.delete(:remember_token)
   end
 
   def log_out
     forget(current_user)
-    session.delete(:care_provider_id)
+    session.delete(:provider_id)
     @current_user = nil
   end
 
   def current_user
-    if care_provider_id = session[:care_provider_id]
-      @current_user ||= CareProvider.find_by(id: care_provider_id)
-    elsif care_provider_id = cookies.signed[:care_provider_id]
-      care_provider = CareProvider.find_by(id: care_provider_id)
-      if care_provider && care_provider.authenticated?(cookies[:remember_token])
-        log_in care_provider
-        @current_user = care_provider
+    if provider_id = session[:provider_id]
+      @current_user ||= Provider.find_by(id: provider_id)
+    elsif provider_id = cookies.signed[:provider_id]
+      provider = Provider.find_by(id: provider_id)
+      if provider && provider.authenticated?(cookies[:remember_token])
+        log_in provider
+        @current_user = provider
       end
     end
   end

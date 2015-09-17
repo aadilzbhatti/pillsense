@@ -1,17 +1,17 @@
-class CareProvidersController < ApplicationController
+class ProvidersController < ApplicationController
   before_action :logged_in_user, only: [:show, :edit, :update, :destroy, :index]
   before_action :correct_user, only: [:edit, :update]
   before_action :admin_user, only: [:destroy]
 
   def new
-    @care_provider = CareProvider.new
+    @provider = Provider.new
   end
 
   def create
-    @care_provider = CareProvider.new(care_provider_params)
-    if @care_provider.save
-      log_in @care_provider
-      remember @care_provider
+    @provider = Provider.new(provider_params)
+    if @provider.save
+      log_in @provider
+      remember @provider
       flash[:success] = 'Welcome to the PillSense Web Application!'
       render 'show'
     else
@@ -20,38 +20,38 @@ class CareProvidersController < ApplicationController
   end
 
   def show
-    @care_provider = CareProvider.find(params[:id])
+    @provider = Provider.find(params[:id])
   end
 
   def edit
-    @care_provider = CareProvider.find(params[:id])
+    @provider = Provider.find(params[:id])
   end
 
   def update
-    @care_provider = CareProvider.find(params[:id])
-    if @care_provider.update_attributes(care_provider_params)
+    @provider = Provider.find(params[:id])
+    if @provider.update_attributes(provider_params)
       flash[:success] = 'Profile Updated'
-      redirect_to @care_provider
+      redirect_to @provider
     else
       render 'edit'
     end
   end
 
   def index
-    @care_providers = CareProvider.all
+    @providers = Provider.all
   end
 
   def destroy
-    CareProvider.find(params[:id]).destroy
+    Provider.find(params[:id]).destroy
     flash[:success] = 'User deleted'
-    redirect_to care_providers_url
+    redirect_to providers_url
   end
 
   private
 
     # Never trust parameters from the scary internet, only allow the white list through.
-    def care_provider_params
-      params.require(:care_provider).permit(:name, :email, :password, :password_confirmation)
+    def provider_params
+      params.require(:provider).permit(:name, :email, :password, :password_confirmation)
     end
 
     # Before filters
@@ -67,8 +67,8 @@ class CareProvidersController < ApplicationController
 
     # Checks if user is correct user
     def correct_user
-      @care_provider = CareProvider.find(params[:id])
-      redirect_to root_url unless current_user?(@care_provider)
+      @provider = Provider.find(params[:id])
+      redirect_to root_url unless current_user?(@provider)
     end
 
     # Confirms an admin user

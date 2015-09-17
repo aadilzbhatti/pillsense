@@ -2,7 +2,7 @@ require 'test_helper'
 
 class UsersSignupTest < ActionDispatch::IntegrationTest
   def setup
-    @user = care_providers(:aadil)
+    @user = providers(:aadil)
   end
 
   test 'login with invalid information' do
@@ -20,10 +20,10 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
     post login_path, session: { email: @user.email, password: 'password' }
     assert_redirected_to @user
     follow_redirect!
-    assert_template 'care_providers/show'
+    assert_template 'providers/show'
     assert_select 'a[href=?]', login_path, count: 0
     assert_select 'a[href=?]', logout_path
-    assert_select 'a[href=?]', care_provider_path(@user)
+    assert_select 'a[href=?]', provider_path(@user)
   end
 
   test 'login with valid information followed by logout' do
@@ -32,17 +32,17 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
     assert is_logged_in?
     assert_redirected_to @user
     follow_redirect!
-    assert_template 'care_providers/show'
+    assert_template 'providers/show'
     assert_select 'a[href=?]', login_path, count: 0
     assert_select 'a[href=?]', logout_path
-    assert_select 'a[href=?]', care_provider_path(@user)
+    assert_select 'a[href=?]', provider_path(@user)
     delete logout_path
     assert_not is_logged_in?
     assert_redirected_to root_url
     delete logout_path
     follow_redirect!
-    assert_select "a[href=?]", login_path
-    assert_select "a[href=?]", logout_path,      count: 0
+    assert_select 'a[href=?]', login_path
+    assert_select 'a[href=?]', logout_path,      count: 0
   end
 
   test 'login with remembering' do

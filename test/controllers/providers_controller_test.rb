@@ -1,9 +1,9 @@
 require 'test_helper'
 
-class CareProvidersControllerTest < ActionController::TestCase
+class ProvidersControllerTest < ActionController::TestCase
   def setup
-    @user = care_providers(:aadil)
-    @other_user = care_providers(:archer)
+    @user = providers(:aadil)
+    @other_user = providers(:archer)
   end
 
   test 'should get new' do
@@ -43,7 +43,7 @@ class CareProvidersControllerTest < ActionController::TestCase
   end
 
   test 'should redirect destroy when not logged in' do
-    assert_no_difference 'CareProvider.count' do
+    assert_no_difference 'Provider.count' do
       delete :destroy, id: @user
     end
     assert_redirected_to login_url
@@ -51,7 +51,7 @@ class CareProvidersControllerTest < ActionController::TestCase
 
   test 'should redirect destroy when logged in as non-admin' do
     log_in_as(@other_user)
-    assert_no_difference 'CareProvider.count' do
+    assert_no_difference 'Provider.count' do
       delete :destroy, id: @user
     end
     assert_redirected_to root_url

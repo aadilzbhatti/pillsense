@@ -2,7 +2,7 @@
 <h1>All Users</h1>
 
 <ul class="users">
-  <% @care_providers.each do |u| %>
+  <% @providers.each do |u| %>
       <li>
         <%= link_to u.name, u %>
         <% if current_user && current_user.admin? %>
