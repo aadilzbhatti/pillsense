@@ -4,6 +4,7 @@ aadil:
   name: Aadil Bhatti
   email: aadilzbhatti@gmail.com
   password_digest: <%= CareProvider.digest('password') %>
+  admin: true
 
 archer:
   name: Sterling Archer

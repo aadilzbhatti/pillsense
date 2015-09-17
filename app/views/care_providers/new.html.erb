@@ -3,19 +3,7 @@
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
     <%= form_for @care_provider do |f| %>
-        <% if @care_provider.errors.any? %>
-            <div id="error_explanation">
-              <div class="alert alert-danger">
-                The form contains <%= pluralize(@care_provider.errors.count, 'error') %>.
-              </div>
-              <ul>
-                <% @care_provider.errors.full_messages.each do |msg| %>
-                    <li><%= msg %></li>
-                <% end %>
-              </ul>
-            </div>
-        <% end %>
-
+        <%= render 'layouts/errors' %>
         <%= f.label :name %>
         <%= f.text_field :name, class: 'form-control' %>
 

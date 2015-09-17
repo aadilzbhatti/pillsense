@@ -1,27 +1,13 @@
-<p id="notice"><%= notice %></p>
+<%= provide(:title, 'All Users') %>
+<h1>All Users</h1>
 
-<h1>Listing Care Providers</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @care_providers.each do |care_provider| %>
-      <tr>
-        <td><%= care_provider.name %></td>
-        <td><%= link_to 'Show', care_provider %></td>
-        <td><%= link_to 'Edit', edit_care_provider_path(care_provider) %></td>
-        <td><%= link_to 'Destroy', care_provider, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Care provider', new_care_provider_path %>
+<ul class="users">
+  <% @care_providers.each do |u| %>
+      <li>
+        <%= link_to u.name, u %>
+        <% if current_user && current_user.admin? %>
+            | <%= link_to 'delete', u, method: :delete, data: { confirm: 'You sure?' } %>
+        <% end %>
+      </li>
+  <% end %>
+</ul>
