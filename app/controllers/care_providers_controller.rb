@@ -1,5 +1,6 @@
 class CareProvidersController < ApplicationController
   before_action :logged_in_user, only: [:show, :edit, :update, :destroy]
+  before_action :correct_user, only: [:edit, :update]
 
   # GET /care_providers
   # GET /care_providers.json
@@ -52,11 +53,9 @@ class CareProvidersController < ApplicationController
   # DELETE /care_providers/1
   # DELETE /care_providers/1.json
   def destroy
-    @care_provider.destroy
-    respond_to do |format|
-      format.html { redirect_to care_providers_url, notice: 'Care provider was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+    CareProvider.find(params[:id]).destroy
+    flash[:success] = 'User deleted'
+    redirect_to care_providers_url
   end
 
   private

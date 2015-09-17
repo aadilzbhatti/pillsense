@@ -71,7 +71,7 @@ class CareProviderTest < ActiveSupport::TestCase
     assert_not @care_provider.valid?
   end
 
-  # test 'authenticated? should return false for a nil digest' do
-  #   assert_not @care_provider.authenticated?('')
-  # end
+  test 'authenticated? should return false for a nil digest' do
+    assert_not @care_provider.authenticated?('')
+  end
 end

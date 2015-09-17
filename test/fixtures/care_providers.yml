@@ -1,7 +1,11 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  name: MyString
+aadil:
+  name: Aadil Bhatti
+  email: aadilzbhatti@gmail.com
+  password_digest: <%= CareProvider.digest('password') %>
 
-two:
-  name: MyString
+archer:
+  name: Sterling Archer
+  email: duchess2@example.gov
+  password_digest: <%= CareProvider.digest('boobies') %>
