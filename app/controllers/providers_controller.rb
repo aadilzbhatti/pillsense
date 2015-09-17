@@ -38,7 +38,7 @@ class ProvidersController < ApplicationController
   end
 
   def index
-    @providers = Provider.all
+    @providers = Provider.paginate(:page => params[:page])
   end
 
   def destroy

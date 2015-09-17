@@ -1,2 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project version="4" />
+<project version="4">
+  <component name="dataSourceStorageLocal">
+    <data-source name="Rails pillsense-app: development" uuid="32e14f66-dbec-4ea6-910f-84009a280df6" />
+    <data-source name="Rails pillsense-app: test" uuid="3f20568a-94a8-4075-a9e9-2da63e9a349d" />
+  </component>
+</project>

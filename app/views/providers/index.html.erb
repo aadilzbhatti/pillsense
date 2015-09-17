@@ -1,13 +1,17 @@
 <%= provide(:title, 'All Users') %>
 <h1>All Users</h1>
 
+<%= will_paginate %>
+
 <ul class="users">
   <% @providers.each do |u| %>
       <li>
         <%= link_to u.name, u %>
-        <% if current_user && current_user.admin? %>
+        <% if current_user.admin? && !current_user?(u) %>
             | <%= link_to 'delete', u, method: :delete, data: { confirm: 'You sure?' } %>
         <% end %>
       </li>
   <% end %>
 </ul>
+
+<%= will_paginate %>
